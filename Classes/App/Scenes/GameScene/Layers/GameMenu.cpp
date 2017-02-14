@@ -38,6 +38,11 @@ bool GameMenu::initWith(GameScene *theGame){
         _scoreLabel->setPosition(_introLabel->getPosition() - Point(0, 48));
         this->addChild(_scoreLabel);
         
+        _noticeLabel = Label::createWithTTF(" ", GAMEDEF_FONTFILE_TEXT, 32);
+        _noticeLabel->setColor(GAMEDEF_COLOR3B_TEXT);
+        _noticeLabel->setPosition(Point(SS_DESIGN_WIDTH/2, GAMEDEF_GAMEPLAY_MENU_PADDING - 24));
+        this->addChild(_noticeLabel);
+        
         // lines
         auto topLine = LayerColor::create(Color4B(darkenColor(GAMEDEF_COLOR3B_TEXT, 64)), SS_DESIGN_WIDTH, 4);
         topLine->setPosition(Point(0, SS_DESIGN_HEIGHT - GAMEDEF_GAMEPLAY_MENU_PADDING));

@@ -22,8 +22,8 @@ public:
     enum class AppState {
         NONE,
         LOADING,
-        HOME,
         GAME,
+        TUTORIAL,
     };
     
 private:
@@ -42,6 +42,7 @@ public:
     // scenes
     void onLoadingScene();
     void onGameScene();
+    void onTutorialScene();
 };
 
 #endif /* MyDirector_h */

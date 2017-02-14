@@ -10,6 +10,7 @@
 #include "Global/GameDefines.h"
 #include "Scenes/LoadingScene/LoadingScene.h"
 #include "Scenes/GameScene/GameScene.h"
+#include "Scenes/TutorialScene/TutorialScene.h"
 #include "../Components/MyComponents.h"
 
 static MyDirector *__myDirectorInstance__ = nullptr;
@@ -51,4 +52,12 @@ void MyDirector::onGameScene(){
     this->setAppState(AppState::GAME);
     
     Director::getInstance()->pushScene(TransitionFade::create(0.4f, GameScene::create()));
+}
+
+void MyDirector::onTutorialScene(){
+    CCASSERT(Director::getInstance()->getRunningScene(), "hieunt: HAVE A PROBLEM ...");
+    
+    this->setAppState(AppState::TUTORIAL);
+    
+    Director::getInstance()->pushScene(TransitionFade::create(0.4f, TutorialScene::create()));
 }

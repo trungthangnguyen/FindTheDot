@@ -69,6 +69,9 @@ void GameScene::createNewGame(){
     _gameLayer->removeAllChildrenWithCleanup(true);
     _pinNodes.clear();
     
+    _score = 0;
+    _totalDis = 0.f;
+    
     float targetPadding = GAMEDEF_GAMEPLAY_RADIUS * 0.4f;
     _targetPos = Point(targetPadding + CCRANDOM_0_1()*(SS_DESIGN_WIDTH - targetPadding*2),
                        GAMEDEF_GAMEPLAY_MENU_PADDING + CCRANDOM_0_1()*(SS_DESIGN_HEIGHT - GAMEDEF_GAMEPLAY_MENU_PADDING*2));
@@ -103,7 +106,16 @@ void GameScene::pinLocation(Point pos){
 #pragma mark EventListenerTouchOneByOne
 bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event){
     if (_gameState == GameState::PLAY) {
-        this->pinLocation(touch->getLocation());
+        Point pos = touch->getLocation();
+        
+        _score++;
+        _gameMenu->updateScoreLabel(_score);
+        
+        float dis = pos.distance(_targetPos);
+        _totalDis += dis;
+        _gameMenu->updateNoticeLabel(__String::createWithFormat("%d metres", (int)dis)->getCString());
+        
+        this->pinLocation(pos);
     }
     
     return false;

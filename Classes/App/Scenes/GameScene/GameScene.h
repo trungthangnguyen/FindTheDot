@@ -43,6 +43,8 @@ private:
     GameState           _gameState;
     GameState           _preGameState;
     Point               _targetPos;
+    int                 _score;
+    float               _totalDis;
     
     bool init() override;
     
