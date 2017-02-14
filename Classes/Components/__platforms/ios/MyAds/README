@@ -1,0 +1,12 @@
+-----------------------------------------------
+*   Hieu Nguyen Trung, trunghieu88qht@gmail.com
+    Ngày 7 tháng 3, 2015
+
+*   Đây là MyAds có chức năng hiển thị quảng cáo trên các ứng dụng Cocos2d-x của iOS
+    Phiên bản: 1.0.2 - ngày 9 tháng 3, 2015
+
+*   Cách sử dụng:
+        - add MyAds vào project của bạn
+        - thêm các framework cần thiết (trong Build Phases)
+        - setup các giá trị cần thiết trong MyAdDefines.h
+        - include hoặc import MyAds.h và sử dụng thôi...
